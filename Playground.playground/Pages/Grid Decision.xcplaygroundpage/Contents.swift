@@ -36,51 +36,55 @@ let canvas = Canvas(width: preferredWidth, height: preferredHeight)
 PlaygroundPage.current.liveView = canvas
 
 
-/*:
- ## Add your code
- 
- Beginning on line 48, write a meaningful comment.
- 
- You can remove the code on line 49 and begin writing your own code.
- 
- [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
- */
 
 // Draw the axes with a scale
 canvas.drawAxes(withScale: true, by: 50)
 
-// Draw a line of circles
-
-for y in stride(from: 0, to: 500, by: 50) {
- 
-    for x in stride(from: 0, to: 500, by: 50) {
-        x //Code in this block is repeated 100 times
-        
-        // Createa random size
-        let size = Int.random(in: 25...50)
-        
-        // Draw circle
-        canvas.drawEllipse(at: Point(x: x + 25, y: y + 25), width: size, height: size)
-    }
-}
-
-//// Draw the axes with scale
-//canvas.drawAxes(withScale: true, by: 50)
+//for y in stride(from: 0, to: 500, by: 50) {
 //
-//canvas.drawShapesWithFill = true
+//    for x in stride(from: 0, to: 500, by: 50) {
+//
+//        canvas.defaultLineWidth = 5
+//        // Make a radom number that will be 1 or 2
+//        let decisionMaker = Int.random(in: 1...2)
+//
+//        // Now draw a line one way or the other...
+//        if decisionMaker == 1 {
+//        // Draw a /
+//            canvas.drawLine(from: Point(x: x, y: y), to: Point(x: x + 50, y: y + 50))
+//        } else {
+//            // Draw a \
+//            canvas.drawLine(from: Point(x: x, y: y + 50), to: Point(x: x + 50, y: y))
+//        }
+//
+//    }
+//}
+
+
 //for y in stride(from: 0, to: 500, by: 50) {
 //    for x in stride(from: 0, to: 500, by: 50){
-//        canvas.fillColor = Color.black
-//        canvas.drawEllipse(at: Point(x: x + 25, y: y + 25), width: 50, height: 50)
-//        canvas.fillColor = Color.white
-//        let size = Int.random(in: 15...40)
-//        canvas.drawEllipse(at: Point(x: x + 25, y: y + size), width: size, height: size)
+//
+//
+//        canvas.drawLine(from: Point(x: x+25, y: y+25), to: Point(x: x, y: y+50))
+//        canvas.drawLine(from: Point(x: x+25, y: y+25), to: Point(x: x+50, y: y+50))
+//        canvas.drawLine(from: Point(x: x+25, y: x+25), to: Point(x: x, y: y))
+//        canvas.drawLine(from: Point(x: x+25, y: x+25), to: Point(x: x+50, y: y))
+//
 //    }
 //}
 
 
 
+for y in stride(from: 0, to: 500, by: 50) {
+    for x in stride(from: 0, to: 500, by: 50){
+        canvas.drawLine(from: Point(x: x, y: y), to: Point(x: x+50, y: y+50))
+        canvas.drawLine(from: Point(x: x, y: y+50), to: Point(x: x+50, y: y))
+    }
+        
+}
+  
+        
+        
 
 /*:
  ## Show the Assistant Editor
