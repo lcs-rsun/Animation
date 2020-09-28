@@ -80,9 +80,9 @@ for y in stride(from: 0, to: 500, by: 50) {
         canvas.drawLine(from: Point(x: x, y: y), to: Point(x: x+50, y: y+50))
         canvas.drawLine(from: Point(x: x, y: y+50), to: Point(x: x+50, y: y))
     }
-        
+
 }
-  
+
         
         
 

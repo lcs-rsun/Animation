@@ -30,7 +30,7 @@ import PlaygroundSupport
 import CanvasGraphics
 
 // Create canvas
-let canvas = Canvas(width: preferredWidth, height: preferredHeight)
+let canvas = Canvas(width: preferredWidth, height: preferredHeight, quality: .Ultra)
 
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
@@ -143,9 +143,9 @@ canvas.defaultBorderWidth = 5
 canvas.drawEllipse(at: Point(x: 180, y: 320), width: 50, height: 50)
 canvas.drawEllipse(at: Point(x: 320, y: 320), width: 50, height: 50)
 
-canvas.drawAxes(withScale:true)
 
 
+canvas.copyToClipboard()
 
 
 
