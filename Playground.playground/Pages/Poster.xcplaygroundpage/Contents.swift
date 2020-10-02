@@ -47,10 +47,72 @@ PlaygroundPage.current.liveView = canvas
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
-canvas.drawAxes(withScale: true, by: 50)
+
 let limeGreen = Color(hue: 106, saturation: 64, brightness: 73, alpha: 100)
+let offWhite = Color(hue: 81, saturation: 5, brightness: 88, alpha: 100)
 canvas.fillColor = limeGreen
+canvas.borderColor = limeGreen
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
+
+canvas.fillColor = Color.black
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 400)
+
+
+
+// Draw circles
+canvas.fillColor = limeGreen
+let size = 40
+for y in stride(from: 0, through: 400, by: size) {
+    for x in stride(from: 0, through: 400, by: size) {
+       
+        if x == 0 {
+            canvas.fillColor = limeGreen
+        } else if x == 400 {
+            canvas.fillColor = limeGreen
+        } else if y == 0 {
+            canvas.fillColor = limeGreen
+        } else if y == 400 {
+            canvas.fillColor = limeGreen
+        } else if (x + y) == 400 {
+            canvas.fillColor = offWhite
+        } else  if (x + y) > 400 {
+            canvas.fillColor = limeGreen
+        } else {
+            canvas.fillColor = offWhite
+        }
+        
+        canvas.drawEllipse(at: Point(x: x , y: y), width: size-5, height: size-5)
+        
+
+    
+    }
+    
+}
+
+canvas.fillColor = limeGreen
+canvas.drawRectangle(at: Point(x: 0, y: 400), width: 400, height: 50)
+// Black Text
+canvas.drawText(message: "pixies", at: Point(x: 10, y: 410), size: 70, kerning: 0)
+canvas.drawText(message: "saturday", at: Point(x: 15, y: 550), size: 12, kerning: 0)
+canvas.drawText(message: "december 13 1986", at: Point(x: 15, y: 530), size: 12, kerning: 0)
+canvas.drawText(message: "9 pm over 21", at: Point(x: 15, y: 510), size: 12, kerning: 0)
+canvas.drawText(message: "at the rat", at: Point(x: 280, y: 550), size: 12, kerning: 0)
+canvas.drawText(message: "528 commonwealth", at: Point(x: 280, y: 530), size: 12, kerning: 0)
+canvas.drawText(message: "boston, mass.", at: Point(x: 280, y: 510), size: 12, kerning: 0)
+    
+// White Text
+canvas.textColor = offWhite
+canvas.drawText(message: "with", at: Point(x: 280, y: 460), size: 14, kerning: 0)
+canvas.drawText(message: "throwing muses", at: Point(x: 280, y: 440), size: 14, kerning: 0)
+canvas.drawText(message: "big dipper", at: Point(x: 280, y:420 ), size: 14, kerning: 0)
+
+
+
+
+
+canvas.drawAxes(withScale: true, by: 50)
+
+
 
 
 /*:
