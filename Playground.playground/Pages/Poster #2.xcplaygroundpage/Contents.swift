@@ -44,7 +44,7 @@ PlaygroundPage.current.liveView = canvas
  You can remove the code on line 49 and begin writing your own code.
  
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
+ 
  */
 
 let pink = Color(hue: 338, saturation: 83, brightness: 89, alpha: 100)
@@ -57,13 +57,28 @@ canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 canvas.drawShapesWithBorders = true
 canvas.drawShapesWithFill = false
 canvas.defaultBorderWidth = 15
-for x in stride(from: 0, to: 200, by: 30){
+
+//Bottom left corner
+for x in stride(from: 0, to: 190, by: 30){
     if x%20 == 0 {
-        canvas.borderColor = beige
-    } else {
         canvas.borderColor = black
+    } else {
+        canvas.borderColor = beige
+        
     }
     canvas.drawRectangle(at: Point(x: 0, y: 0), width: x+25, height: x+25,anchoredBy: .bottomLeft)
+}
+
+//Bottom right corner
+for x in stride(from: 0, to: 190, by: 30) {
+    if x%20 == 0 {
+        canvas.borderColor = black
+    }else {
+        canvas.borderColor = beige
+    }
+    canvas.drawRectangle(at: Point(x: 400, y: 0), width: 25, height: 25,anchoredBy: .bottomLeft)
+    
+    
 }
 /*:
  ## Show the Assistant Editor
@@ -72,7 +87,7 @@ for x in stride(from: 0, to: 200, by: 30){
  Remember to show the Assistant Editor (1), and then switch to Live View (2):
  
  ![timeline](timeline.png "Timeline")
-
+ 
  ## Use source control
  To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
  
