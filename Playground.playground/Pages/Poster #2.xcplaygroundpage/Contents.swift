@@ -56,30 +56,67 @@ canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
 canvas.drawShapesWithBorders = true
 canvas.drawShapesWithFill = false
-canvas.defaultBorderWidth = 15
+canvas.defaultBorderWidth = 13
+
+//Bottom right corner
+
+for x in stride(from: 400, to: 10, by: -57) {
+    if x%2 == 0 {
+        canvas.borderColor = black
+    } else {
+        canvas.borderColor = beige
+    }
+    canvas.drawRectangle(at: Point(x: 400, y: 0), width: x-25, height: x-25,anchoredBy: .centre)
+    
+    
+}
+
 
 //Bottom left corner
-for x in stride(from: 0, to: 190, by: 30){
-    if x%20 == 0 {
+for x in stride(from: 0, to: 390, by: 57){
+    if x%6 == 0 {
         canvas.borderColor = black
     } else {
         canvas.borderColor = beige
         
     }
-    canvas.drawRectangle(at: Point(x: 0, y: 0), width: x+25, height: x+25,anchoredBy: .bottomLeft)
+    canvas.drawRectangle(at: Point(x: 0, y: 0), width: x+25, height: x+25,anchoredBy: .centre)
 }
 
-//Bottom right corner
-for x in stride(from: 0, to: 190, by: 30) {
-    if x%20 == 0 {
+//Up right corner
+
+for y in stride(from: 0, to: 390, by: 57){
+    if y%2 == 0 {
         canvas.borderColor = black
-    }else {
+    } else {
         canvas.borderColor = beige
     }
-    canvas.drawRectangle(at: Point(x: 400, y: 0), width: 25, height: 25,anchoredBy: .bottomLeft)
+    canvas.drawRectangle(at: Point(x: 0, y: 400), width: y+25, height: y+25,anchoredBy: .centre)
     
+    }
+
+// Up left corner
+for y in stride(from: 400, to: 10, by: -57){
+    if y%2 == 0{
+        canvas.borderColor = black
+    } else {
+        canvas.borderColor = beige
+    
+    }
+    canvas.drawRectangle(at: Point(x: 400, y: 400), width: y-25, height: y-25,anchoredBy: .centre)
     
 }
+
+canvas.drawShapesWithFill = true
+canvas.drawShapesWithBorders = false
+canvas.drawRectangle(at: Point(x: 0, y: 400), width: 400, height: 200,anchoredBy:.bottomLeft)
+
+
+
+
+
+
+canvas.drawAxes(withScale: true, by: 50)
 /*:
  ## Show the Assistant Editor
  Don't see any results?
