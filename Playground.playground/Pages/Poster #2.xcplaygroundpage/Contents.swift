@@ -71,7 +71,6 @@ for x in stride(from: 400, to: 10, by: -57) {
     
 }
 
-
 //Bottom left corner
 for x in stride(from: 0, to: 390, by: 57){
     if x%6 == 0 {
@@ -84,7 +83,6 @@ for x in stride(from: 0, to: 390, by: 57){
 }
 
 //Up right corner
-
 for y in stride(from: 0, to: 390, by: 57){
     if y%2 == 0 {
         canvas.borderColor = black
