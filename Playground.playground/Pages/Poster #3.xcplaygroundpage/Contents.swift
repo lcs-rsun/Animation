@@ -58,10 +58,10 @@ canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 for x in stride(from: 0, to: 400, by: 50){
     for y in stride(from: 200, to: 600, by: 50){
         
-        if (x+y) > 500  {
-            canvas.fillColor = brightYellow
-        } else {
+        if  (x-y)<(-200)  {
             canvas.fillColor = offWhite
+        } else  {
+            canvas.fillColor = brightYellow
         }
         
         
@@ -79,7 +79,17 @@ for x in stride(from: 0, to: 400, by: 50){
     
 }
 
-canvas.drawAxes(withScale: true, by: 50)
+canvas.textColor = offWhite
+canvas.drawText(message: "talking heads", at: Point(x: 25, y: 140), size: 40, kerning: 0)
+canvas.drawText(message: "friday, saturday, sunday", at: Point(x: 18, y: 30), size: 9, kerning: 0)
+canvas.drawText(message: "september 12, 13, 14, 1975", at: Point(x: 18, y: 15), size: 9, kerning: 0)
+canvas.drawText(message: "at cbgb and omfug", at: Point(x: 150, y: 30), size: 9, kerning: 0)
+canvas.drawText(message: "315 bowery, new york city", at: Point(x: 150, y: 15), size: 9, kerning: 0)
+
+canvas.drawText(message: "also appearing:", at: Point(x: 280, y: 30), size: 9, kerning: 0)
+canvas.drawText(message: "from brroklyn, the shirts", at: Point(x: 280, y: 15), size: 9, kerning: 0)
+
+//canvas.drawAxes(withScale: true, by: 50)
 /*:
  ## Show the Assistant Editor
  Don't see any results?
