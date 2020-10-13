@@ -53,8 +53,7 @@ let offWhite = Color(hue: 83, saturation: 4, brightness: 89, alpha: 100)
 
 canvas.defaultLineWidth = 15
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
-
-
+// Pattern
 for x in stride(from: 10, to: 410, by: 80){
     for y in stride(from: 10, to: 410, by: 80){
         
@@ -69,10 +68,21 @@ for x in stride(from: 10, to: 410, by: 80){
         canvas.drawLine(from: Point(x: x, y: y), to: Point(x: x+45, y: y))
         canvas.drawLine(from: Point(x: x, y: y), to: Point(x: x, y: y+45))
         canvas.drawLine(from: Point(x: x+5, y: y+5), to: Point(x: x+60 , y: y+60))
-        
-        
     }
 }
+
+//Text
+canvas.textColor = offWhite
+canvas.drawText(message: "the velvet underground", at: Point(x: 10, y: 415), size: 35, kerning: -2)
+
+canvas.drawText(message: "first apperance in london", at: Point(x: 10, y: 550), size: 9, kerning: -0.5)
+canvas.drawText(message: "the london college of printing", at: Point(x: 10, y: 540), size: 9, kerning: -0.5)
+
+canvas.drawText(message: "with spring and pollyfloskin", at: Point(x: 150, y: 550), size: 9, kerning: -0.5)
+canvas.drawText(message: "plus the great western lightshow", at: Point(x: 150, y: 540), size: 9, kerning: -0.5)
+canvas.drawText(message: "thursday", at: Point(x: 300, y: 550), size: 9, kerning: -0.5)
+canvas.drawText(message: "october 14 1971/8pm", at: Point(x: 300, y: 540), size: 9, kerning: -0.5)
+
 
 /*:
  ## Show the Assistant Editor
