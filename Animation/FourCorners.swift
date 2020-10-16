@@ -10,15 +10,13 @@ import Foundation
 import CanvasGraphics
 
 // NOTE: This is a completely empty sketch; it can be used as a template.
-class FiveCircles: NSObject, Sketchable {
+class FourCorners: NSObject, Sketchable {
     
     // NOTE: Every sketch must contain an object of type Canvas named 'canvas'
     //       Therefore, the line immediately below must always be present.
     var canvas: Canvas
-    
-    //Vertical position
     var x = 250
-//    var c = 250
+    var y = 250
     
     // This function runs once
     override init() {
@@ -30,28 +28,11 @@ class FiveCircles: NSObject, Sketchable {
     
     // This function runs repeatedly, forever, to create the animated effect
     func draw() {
-       
-        canvas.drawShapesWithBorders = false
-        
-        //Second, Fourth Circle
         x += 1
-        canvas.fillColor = Color.orange
-        canvas.drawEllipse(at: Point(x: 500-x, y: 350), width: 50, height: 50)
-      
-        canvas.fillColor = Color.blue
-        canvas.drawEllipse(at: Point(x: 500-x, y: 150), width: 50, height: 50)
-
-        //First, Third, Fifth Cicrcle
-        x += 1
-        canvas.fillColor = Color.purple
-        canvas.drawEllipse(at: Point(x: x, y: 450), width: 50, height: 50)
-       
+        y += 1
         canvas.fillColor = Color.green
-        canvas.drawEllipse(at: Point(x: x, y: 250), width: 50, height: 50)
-    
-        canvas.fillColor = Color.black
-        canvas.drawEllipse(at: Point(x: x, y: 50), width: 50, height: 50)
-
+        canvas.drawEllipse(at: Point(x: x, y: y), width: 50, height: 50)
+        
     }
     
 }
