@@ -28,10 +28,31 @@ class FourCorners: NSObject, Sketchable {
     
     // This function runs repeatedly, forever, to create the animated effect
     func draw() {
+       
+        canvas.drawShapesWithBorders = false
         x += 1
         y += 1
-        canvas.fillColor = Color.green
+
+        // Red Circle
+        canvas.fillColor = Color.red
         canvas.drawEllipse(at: Point(x: x, y: y), width: 50, height: 50)
+        
+        // Green Circle
+        canvas.fillColor = Color.green
+        canvas.drawEllipse(at: Point(x: 500-x, y: y), width: 50, height: 50)
+        
+        // Yellow Circle
+        canvas.fillColor = Color.yellow
+        canvas.drawEllipse(at: Point(x: 500-x, y: 500-y), width: 50, height: 50)
+        
+        
+        // Yellow Circle
+        canvas.fillColor = Color.blue
+        canvas.drawEllipse(at: Point(x: x, y: 500-y), width: 50, height: 50)
+
+
+        
+
         
     }
     
