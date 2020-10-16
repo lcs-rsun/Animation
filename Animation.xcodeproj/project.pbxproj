@@ -31,6 +31,7 @@
 		852B9D242538D01B004C3DB9 /* MovingSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B9D232538D01B004C3DB9 /* MovingSquare.swift */; };
 		852B9D272538D5B4004C3DB9 /* FiveCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B9D262538D5B4004C3DB9 /* FiveCircles.swift */; };
 		85B550652539D4D600E9442A /* FourCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B550642539D4D600E9442A /* FourCorners.swift */; };
+		85B5506D2539DCD500E9442A /* BouncingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B5506C2539DCD500E9442A /* BouncingCircle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		852B9D232538D01B004C3DB9 /* MovingSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingSquare.swift; sourceTree = "<group>"; };
 		852B9D262538D5B4004C3DB9 /* FiveCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveCircles.swift; sourceTree = "<group>"; };
 		85B550642539D4D600E9442A /* FourCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourCorners.swift; sourceTree = "<group>"; };
+		85B5506C2539DCD500E9442A /* BouncingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				852B9D232538D01B004C3DB9 /* MovingSquare.swift */,
 				852B9D262538D5B4004C3DB9 /* FiveCircles.swift */,
 				85B550642539D4D600E9442A /* FourCorners.swift */,
+				85B5506C2539DCD500E9442A /* BouncingCircle.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -181,13 +184,13 @@
 		81064A1A1C132D69007ED524 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				814ADAF2248E9FDA00F80486 /* Sketchable.swift */,
 				81064A091C130A10007ED524 /* AppDelegate.swift */,
 				81064A0B1C130A10007ED524 /* ViewController.swift */,
 				81064A0D1C130A10007ED524 /* Assets.xcassets */,
 				81064A0F1C130A10007ED524 /* Main.storyboard */,
 				81064A121C130A10007ED524 /* Info.plist */,
 				814ADAE9248E655B00F80486 /* AudioAnalyser.swift */,
-				814ADAF2248E9FDA00F80486 /* Sketchable.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				852B9D242538D01B004C3DB9 /* MovingSquare.swift in Sources */,
 				814ADAF9248EB34900F80486 /* BasicSketch.swift in Sources */,
 				814ADAFB248EB45F00F80486 /* AudioInputSketch.swift in Sources */,
+				85B5506D2539DCD500E9442A /* BouncingCircle.swift in Sources */,
 				814ADAF1248E9F8200F80486 /* AudioAnalyser.swift in Sources */,
 				814ADAF3248E9FDA00F80486 /* Sketchable.swift in Sources */,
 				814ADAFD248EB56900F80486 /* EmptySketch.swift in Sources */,
