@@ -18,7 +18,7 @@ class FiveCircles: NSObject, Sketchable {
     
     //Vertical position
     var x = 250
-    var c = 250
+//    var c = 250
     
     // This function runs once
     override init() {
@@ -34,12 +34,12 @@ class FiveCircles: NSObject, Sketchable {
         canvas.drawShapesWithBorders = false
         
         //Second, Fourth Circle
-        c -= 1
+        x += 1
         canvas.fillColor = Color.orange
-        canvas.drawEllipse(at: Point(x: c, y: 350), width: 50, height: 50)
-        c -= 1
+        canvas.drawEllipse(at: Point(x: 500-x, y: 350), width: 50, height: 50)
+        x += 1
         canvas.fillColor = Color.blue
-        canvas.drawEllipse(at: Point(x: c, y: 150), width: 50, height: 50)
+        canvas.drawEllipse(at: Point(x: 500-x, y: 150), width: 50, height: 50)
 
         //First, Third, Fifth Cicrcle
         x += 1
