@@ -16,7 +16,11 @@ class BouncingCircle: NSObject, Sketchable {
     //       Therefore, the line immediately below must always be present.
     var canvas: Canvas
     
-    var x = 250
+    var dx = 1
+    var dy = 1
+    var x = Int.random(in: 0...500)
+    var y = Int.random(in: 0...500)
+
     // This function runs once
     override init() {
         
@@ -27,9 +31,25 @@ class BouncingCircle: NSObject, Sketchable {
     
     // This function runs repeatedly, forever, to create the animated effect
     func draw() {
+        canvas.fillColor = Color.white
+        canvas.drawRectangle(at: Point(x: 250, y: 250), width: 500, height: 500, anchoredBy: .centre)
         
-        x += 1
-        canvas.drawEllipse(at: Point(x: x, y: 250), width: 50, height: 50)
+        
+        x += dx
+        y += dy
+        canvas.fillColor = Color.black
+        canvas.drawEllipse(at: Point(x: x, y: y), width: 50, height: 50)
+        
+        if x >= 500{
+            dx = -1
+        } else if x <= 0 {
+            dx = 1
+        } else if y >= 500 {
+            dy = -1
+        } else if y <= 0 {
+            dy = 1
+        }
+
         
         
     }
