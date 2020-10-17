@@ -32,6 +32,7 @@
 		852B9D272538D5B4004C3DB9 /* FiveCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852B9D262538D5B4004C3DB9 /* FiveCircles.swift */; };
 		85B550652539D4D600E9442A /* FourCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B550642539D4D600E9442A /* FourCorners.swift */; };
 		85B5506D2539DCD500E9442A /* BouncingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B5506C2539DCD500E9442A /* BouncingCircle.swift */; };
+		85B55071253B3DC700E9442A /* RotationOfLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B55070253B3DC700E9442A /* RotationOfLines.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		852B9D262538D5B4004C3DB9 /* FiveCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveCircles.swift; sourceTree = "<group>"; };
 		85B550642539D4D600E9442A /* FourCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourCorners.swift; sourceTree = "<group>"; };
 		85B5506C2539DCD500E9442A /* BouncingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingCircle.swift; sourceTree = "<group>"; };
+		85B55070253B3DC700E9442A /* RotationOfLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationOfLines.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				852B9D262538D5B4004C3DB9 /* FiveCircles.swift */,
 				85B550642539D4D600E9442A /* FourCorners.swift */,
 				85B5506C2539DCD500E9442A /* BouncingCircle.swift */,
+				85B55070253B3DC700E9442A /* RotationOfLines.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				814ADAF3248E9FDA00F80486 /* Sketchable.swift in Sources */,
 				814ADAFD248EB56900F80486 /* EmptySketch.swift in Sources */,
 				814ADAFF248EB5E300F80486 /* StaticSketch.swift in Sources */,
+				85B55071253B3DC700E9442A /* RotationOfLines.swift in Sources */,
 				852B9D272538D5B4004C3DB9 /* FiveCircles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
