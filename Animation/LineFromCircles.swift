@@ -21,6 +21,8 @@ class LineFromCircles: NSObject, Sketchable {
     var x = Int.random(in: 0...500)
     var y = Int.random(in: 0...500)
     var z = Int.random(in: 0...500)
+    var k = Int.random(in: 0...500)
+    
 
     // This function runs once
     override init() {
@@ -45,7 +47,7 @@ class LineFromCircles: NSObject, Sketchable {
         
         //2 Circles
         canvas.drawShapesWithFill = false
-        canvas.drawEllipse(at: Point(x: z, y: 250), width: 250, height: 250)
+        canvas.drawEllipse(at: Point(x: z, y: k), width: 250, height: 250)
         canvas.drawEllipse(at: Point(x: x, y: y), width: 100, height: 100)
         
         // Small Circle Bounce
@@ -65,8 +67,23 @@ class LineFromCircles: NSObject, Sketchable {
             dx = -1
         } else if z <= 0 {
             dx = 1
+        } else if k >= 500 {
+            dy = -1
+        } else if k <= 0 {
+            dy = 1
         }
         
+        
+        // Line between 2 circles
+        let vertical = k-y
+        let horizontal = z-x
+        let SumOfSquares = vertical * vertical + horizontal * horizontal
+        let distance = sqrt(Double(SumOfSquares))
+       
+
+        if  distance < 175 {
+            canvas.drawLine(from: Point(x: z, y: k), to: Point(x: x, y: y))
+        }
         
         
         
