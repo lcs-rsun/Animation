@@ -18,7 +18,7 @@ class LineFromCircles: NSObject, Sketchable {
     
     var dx = 1
     var dy = 1
-    var dx2 = 1
+    var dx2 = -1
     var dy2 = 1
     var x = Int.random(in: 0...500)
     var y = Int.random(in: 0...500)
