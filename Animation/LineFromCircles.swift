@@ -18,6 +18,8 @@ class LineFromCircles: NSObject, Sketchable {
     
     var dx = 1
     var dy = 1
+    var dx2 = 1
+    var dy2 = 1
     var x = Int.random(in: 0...500)
     var y = Int.random(in: 0...500)
     var z = Int.random(in: 0...500)
@@ -43,7 +45,8 @@ class LineFromCircles: NSObject, Sketchable {
         //Movement
         x += dx
         y += dy
-        z += dx
+        z += dx2
+        k += dy2
         
         //2 Circles
         canvas.drawShapesWithFill = false
@@ -64,15 +67,14 @@ class LineFromCircles: NSObject, Sketchable {
 
         // Big Circle Bounce
         if z >= 500{
-            dx = -1
+            dx2 = -1
         } else if z <= 0 {
-            dx = 1
+            dx2 = 1
         } else if k >= 500 {
-            dy = -1
+            dy2 = -1
         } else if k <= 0 {
-            dy = 1
+            dy2 = 1
         }
-        
         
         // Line between 2 circles
         let vertical = k-y
