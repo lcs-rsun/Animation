@@ -38,10 +38,10 @@ class LineFromCircles: NSObject, Sketchable {
     func draw() {
         
         //Draw with no trace
-        canvas.drawShapesWithFill = true
-        canvas.fillColor = Color.white
-        canvas.drawRectangle(at: Point(x: 250, y: 250), width: 500, height: 500, anchoredBy: .centre)
-        
+//        canvas.drawShapesWithFill = true
+//        canvas.fillColor = Color.white
+//        canvas.drawRectangle(at: Point(x: 250, y: 250), width: 500, height: 500, anchoredBy: .centre)
+//
         //Movement
         x += dx
         y += dy
@@ -50,9 +50,9 @@ class LineFromCircles: NSObject, Sketchable {
         
         //2 Circles
         canvas.drawShapesWithFill = false
-        canvas.drawEllipse(at: Point(x: z, y: k), width: 250, height: 250)
-        canvas.drawEllipse(at: Point(x: x, y: y), width: 100, height: 100)
-        
+//        canvas.drawEllipse(at: Point(x: z, y: k), width: 250, height: 250)
+//        canvas.drawEllipse(at: Point(x: x, y: y), width: 100, height: 100)
+
         // Small Circle Bounce
         if x >= 500{
             dx = -1
@@ -84,6 +84,7 @@ class LineFromCircles: NSObject, Sketchable {
        
 
         if  distance < 175 {
+            canvas.lineColor = Color.yellow
             canvas.drawLine(from: Point(x: z, y: k), to: Point(x: x, y: y))
         }
         
