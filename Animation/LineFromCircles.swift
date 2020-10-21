@@ -16,22 +16,26 @@ class LineFromCircles: NSObject, Sketchable {
     //       Therefore, the line immediately below must always be present.
     var canvas: Canvas
     
-    var dx = 1
-    var dy = 1
-    var dx2 = -1
-    var dy2 = 1
-    var x = Int.random(in: 0...500)
-    var y = Int.random(in: 0...500)
-    var z = Int.random(in: 0...500)
-    var k = Int.random(in: 0...500)
-    
+    // Create two circles
+    var small: MovingCircle
+    var large: MovingCircle
 
     // This function runs once
     override init() {
         
         // Create canvas object – specify size
         canvas = Canvas(width: 500, height: 500)
+        
+        // Initialize circles
+        small = MovingCircle(x: Int.random(in: 0...500),
+                             y: Int.random(in: 0...500),
+                             dx: 1,
+                             dy: -1)
                 
+        large = MovingCircle(x: Int.random(in: 0...500),
+                             y: Int.random(in: 0...500),
+                             dx: 1,
+                             dy: -1)
     }
     
     // This function runs repeatedly, forever, to create the animated effect
@@ -41,57 +45,30 @@ class LineFromCircles: NSObject, Sketchable {
 //        canvas.drawShapesWithFill = true
 //        canvas.fillColor = Color.white
 //        canvas.drawRectangle(at: Point(x: 250, y: 250), width: 500, height: 500, anchoredBy: .centre)
-//
+
         //Movement
-        x += dx
-        y += dy
-        z += dx2
-        k += dy2
-        
-        //2 Circles
-        canvas.drawShapesWithFill = false
-//        canvas.drawEllipse(at: Point(x: z, y: k), width: 250, height: 250)
-//        canvas.drawEllipse(at: Point(x: x, y: y), width: 100, height: 100)
-
-        // Small Circle Bounce
-        if x >= 500{
-            dx = -1
-        } else if x <= 0 {
-            dx = 1
-        } else if y >= 500 {
-            dy = -1
-        } else if y <= 0 {
-            dy = 1
-        }
-
-
-        // Big Circle Bounce
-        if z >= 500{
-            dx2 = -1
-        } else if z <= 0 {
-            dx2 = 1
-        } else if k >= 500 {
-            dy2 = -1
-        } else if k <= 0 {
-            dy2 = 1
-        }
-        
-        // Line between 2 circles
-        let vertical = k-y
-        let horizontal = z-x
-        let SumOfSquares = vertical * vertical + horizontal * horizontal
-        let distance = sqrt(Double(SumOfSquares))
-       
-
-        if  distance < 175 {
-            canvas.lineColor = Color.yellow
-            canvas.drawLine(from: Point(x: z, y: k), to: Point(x: x, y: y))
-        }
+        small.update(on: canvas)
+        large.update(on: canvas)
         
         
+//        // Line between 2 circles
+//        let vertical = k-y
+//        let horizontal = z-x
+//        let SumOfSquares = vertical * vertical + horizontal * horizontal
+//        let distance = sqrt(Double(SumOfSquares))
+//
+//
+//        if  distance < 175 {
+//            let value = map(value: distance, fromLower: 0, fromUpper: 175, toLower: 10, toUpper: 30)
+//            canvas.lineColor = Color.init(hue: 0, saturation: 80, brightness: Int(value) * 3, alpha: Int(value))
+//            canvas.drawLine(from: Point(x: z, y: k), to: Point(x: x, y: y))
+//        }
+//
+//
         
         
     }
     
-}
 
+
+}
