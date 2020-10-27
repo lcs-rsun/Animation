@@ -34,6 +34,7 @@
 		85B5506D2539DCD500E9442A /* BouncingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B5506C2539DCD500E9442A /* BouncingCircle.swift */; };
 		85B55071253B3DC700E9442A /* RotationOfLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B55070253B3DC700E9442A /* RotationOfLines.swift */; };
 		85B55075253DBFB000E9442A /* LineFromCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B55074253DBFB000E9442A /* LineFromCircles.swift */; };
+		85BB3B9825487BC20042EB81 /* Skittles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BB3B9725487BC20042EB81 /* Skittles.swift */; };
 		85CDF1712540B51100B467DC /* MovingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CDF1702540B51100B467DC /* MovingCircle.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		85B5506C2539DCD500E9442A /* BouncingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncingCircle.swift; sourceTree = "<group>"; };
 		85B55070253B3DC700E9442A /* RotationOfLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationOfLines.swift; sourceTree = "<group>"; };
 		85B55074253DBFB000E9442A /* LineFromCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineFromCircles.swift; sourceTree = "<group>"; };
+		85BB3B9725487BC20042EB81 /* Skittles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skittles.swift; sourceTree = "<group>"; };
 		85CDF1702540B51100B467DC /* MovingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,7 @@
 				85B55070253B3DC700E9442A /* RotationOfLines.swift */,
 				85B55074253DBFB000E9442A /* LineFromCircles.swift */,
 				85CDF1702540B51100B467DC /* MovingCircle.swift */,
+				85BB3B9725487BC20042EB81 /* Skittles.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 			files = (
 				81064A0C1C130A10007ED524 /* ViewController.swift in Sources */,
 				85B550652539D4D600E9442A /* FourCorners.swift in Sources */,
+				85BB3B9825487BC20042EB81 /* Skittles.swift in Sources */,
 				85CDF1712540B51100B467DC /* MovingCircle.swift in Sources */,
 				81064A1C1C132DA2007ED524 /* Sketch.swift in Sources */,
 				81064A0A1C130A10007ED524 /* AppDelegate.swift in Sources */,
