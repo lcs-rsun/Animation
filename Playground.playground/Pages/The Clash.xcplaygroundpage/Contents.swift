@@ -86,9 +86,22 @@ for x in stride(from: 0, through: 300, by: 100){
        
         canvas.drawEllipse(at: Point(x: x + 25, y: y + 75), width: 65, height: 65)
 
-        
-
      
             }
 }
+
+
+canvas.drawText(message: "the clash", at: Point(x: 10, y: 410), size: 48, kerning: -0.5)
+canvas.drawText(message: "$2.25 / friday", at: Point(x: 20, y: 570), size: 9, kerning: -0.5)
+
+canvas.drawText(message: "december 22 1978", at: Point(x: 20, y: 560), size: 9, kerning: -0.5)
+
+canvas.drawText(message: "christmas party", at: Point(x: 110, y: 570), size: 9, kerning: -0.5)
+
+canvas.drawText(message: "with the slits and innocents", at: Point(x: 110, y: 560), size: 9, kerning: -0.5)
+
+canvas.drawText(message: "frais aylesbury at maxwell hall", at: Point(x: 250, y: 570), size: 9, kerning: -0.5)
+
+canvas.drawText(message: "aylesbury, buckinghamshire, england", at: Point(x: 250, y: 560), size: 9, kerning: -0.5)
+
 
