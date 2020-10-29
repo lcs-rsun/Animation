@@ -66,7 +66,7 @@ for x in stride(from: 0, through: 480, by: 80){
         //Draw a gap first, then go every other
         for y in stride(from: 0, through: 480, by: 160){
             
-            // Draw a linez
+            // Draw a line
             canvas.drawLine(from: Point(x: x, y: y), to: Point(x: x, y: y+80))
         }
         
