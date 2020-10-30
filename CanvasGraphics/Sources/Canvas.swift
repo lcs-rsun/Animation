@@ -563,7 +563,7 @@ public class Canvas : NSImageView, CustomPlaygroundDisplayConvertible {
         customPath.close()
         
         // Set the width
-        customPath.lineWidth = CGFloat(self.defaultLineWidth)
+        customPath.lineWidth = CGFloat(self.defaultBorderWidth)
         
         // Set shape's border color
         NSColor(hue: borderColor.translatedHue, saturation: borderColor.translatedSaturation, brightness: borderColor.translatedBrightness, alpha: borderColor.translatedAlpha).setStroke()

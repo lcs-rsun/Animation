@@ -58,9 +58,11 @@ canvas.fillColor = orange
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 canvas.drawShapesWithFill = false
 
-for size in stride(from: 0, through: 240, by: 40){
+canvas.defaultBorderWidth = 13
+for size in stride(from: 0, through: 228, by: 38){
     
-
+   
+    canvas.borderColor = offWhite
     var vertices: [Point] = []
     vertices.append(Point(x: 225, y: 375 + size )) // start
     vertices.append(Point(x: 225 - size, y: 375))
@@ -68,6 +70,14 @@ for size in stride(from: 0, through: 240, by: 40){
     vertices.append(Point(x: 225 + size, y: 375))
     vertices.append(Point(x: 225, y: 375 + size))
     canvas.drawCustomShape(with: vertices)
+    
+
+
+}
+
+for size in stride(from: 0, through: 228, by: 38){
+    
+    canvas.borderColor = blue
     
     
     var vertices2: [Point] = []
@@ -77,6 +87,12 @@ for size in stride(from: 0, through: 240, by: 40){
     vertices2.append(Point(x: 175 + size, y: 375))
     vertices2.append(Point(x: 175, y: 375 + size))
     canvas.drawCustomShape(with: vertices2)
-
-
+    
 }
+    
+canvas.drawAxes(withScale: true, by: 50)
+    
+
+
+
+
