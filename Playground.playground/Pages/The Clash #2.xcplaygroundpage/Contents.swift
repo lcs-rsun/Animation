@@ -71,8 +71,6 @@ for size in stride(from: 0, through: 228, by: 38){
     vertices.append(Point(x: 225, y: 375 + size))
     canvas.drawCustomShape(with: vertices)
     
-
-
 }
 
 for size in stride(from: 0, through: 228, by: 38){
@@ -90,9 +88,12 @@ for size in stride(from: 0, through: 228, by: 38){
     
 }
     
-canvas.drawAxes(withScale: true, by: 50)
-    
 
 
-
-
+canvas.drawText(message: "the clash", at: Point(x: 15, y: 80), size: 48, kerning: 0)
+canvas.drawText(message: "with the brattles", at: Point(x: 20, y: 35), size: 9, kerning: 0)
+canvas.drawText(message: "and dead kennedys", at: Point(x: 20, y: 20), size: 9, kerning: 0)
+canvas.drawText(message: "matinee and eve", at: Point(x: 110, y: 35), size: 9, kerning: 0)
+canvas.drawText(message: "saturday / june 13 1961", at: Point(x: 110, y: 20), size: 9, kerning: 0)
+canvas.drawText(message: "bonds international casino", at: Point(x: 250, y: 35), size: 9, kerning: 0)
+canvas.drawText(message: "in times square, new york city", at: Point(x: 250, y: 20), size: 9, kerning: 0)
