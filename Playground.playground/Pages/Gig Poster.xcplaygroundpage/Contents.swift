@@ -30,7 +30,7 @@ import PlaygroundSupport
 import CanvasGraphics
 
 // Create canvas
-let canvas = Canvas(width: preferredWidth, height: preferredHeight)
+let canvas = Canvas(width: preferredWidth, height: preferredHeight, quality: .Ultra)
 
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
@@ -81,12 +81,12 @@ for y in stride(from: 240, through: 360, by: 30){
 
 
 canvas.textColor = pink
-canvas.drawText(message: "THE NOW NOW ", at: Point(x: 15, y: 118), size: 55, kerning: -4)
-canvas.drawText(message: "TOUR ", at: Point(x: 140, y: 58), size: 55, kerning: -4)
+canvas.drawText(message: "THE NOW NOW ", at: Point(x: 15, y: 118), size: 53, kerning: -4)
+canvas.drawText(message: "TOUR ", at: Point(x: 140, y: 58), size: 53, kerning: -4)
 
 canvas.textColor = Color.white
-canvas.drawText(message: "THE NOW NOW ", at: Point(x: 10, y: 120), size: 55, kerning: -4)
-canvas.drawText(message: "TOUR ", at: Point(x: 135, y: 60), size: 55, kerning: -4)
+canvas.drawText(message: "THE NOW NOW ", at: Point(x: 10, y: 120), size: 53, kerning: -4)
+canvas.drawText(message: "TOUR ", at: Point(x: 135, y: 60), size: 53, kerning: -4)
 
 
 
@@ -97,6 +97,8 @@ canvas.drawText(message: "tickets $130", at: Point(x: 15, y: 10), size: 11, kern
 canvas.drawText(message: "Air Canada Centre", at: Point(x: 240, y: 40), size: 11, kerning: 1)
 canvas.drawText(message: "40 Bay St", at: Point(x: 240, y: 25), size: 11, kerning: 1)
 canvas.drawText(message: "Toronto, Ontario, Canada", at: Point(x: 240, y: 10), size: 11, kerning: 1)
+
+canvas.copyToClipboard()
 
 
 

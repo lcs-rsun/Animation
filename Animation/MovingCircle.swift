@@ -45,7 +45,7 @@ class MovingCircle {
         y += dy
 
         canvas.drawShapesWithFill = false
-        canvas.drawEllipse(at: Point(x: x, y: y), width: size, height: size)
+//        canvas.drawEllipse(at: Point(x: x, y: y), width: size, height: size)
 
         // Small Circle Bounce
         if x >= 500{
@@ -69,5 +69,25 @@ class MovingCircle {
         let d = sqrt(Double(horizontal * horizontal + vertical * vertical))
         
         return d
+    }
+    
+    // Draw a line between me and the other circle when overlappping
+    func drawWhenOverlapping(other: MovingCircle, on canvas: Canvas) {
+        
+        // Calculate the distance between circles
+        let distance = self.distanceTo(other: other)
+        
+//        // Line between 2 circles
+//        let vertical = k-y
+//        let horizontal = z-x
+//        let SumOfSquares = vertical * vertical + horizontal * horizontal
+//        let distance = sqrt(Double(SumOfSquares))
+//
+//
+        if Int(distance) < self.size / 2 + other.size / 2 {
+            let value = map(value: distance, fromLower: 0, fromUpper: 175, toLower: 10, toUpper: 30)
+            canvas.lineColor = Color.init(hue: Int(value * 10), saturation: 80, brightness: 90, alpha: Int(value))
+            canvas.drawLine(from: Point(x: self.x, y: self.y), to: Point(x: other.x, y: other.y))
+        }
     }
 }
