@@ -17,9 +17,10 @@ class LineFromCircles: NSObject, Sketchable {
     var canvas: Canvas
     
     // Create two circles
-    var small: MovingCircle
-    var large: MovingCircle
-
+    //    var small: MovingCircle
+    //    var large: MovingCircle
+    var circles: [MovingCircle] = []
+    
     // This function runs once
     override init() {
         
@@ -31,7 +32,7 @@ class LineFromCircles: NSObject, Sketchable {
         if Bool.random() == true{
             dx *= -1
         }
-                
+        
         //Randomly pick a vertical object
         var dy = 1
         if Bool.random() == true {
@@ -39,17 +40,29 @@ class LineFromCircles: NSObject, Sketchable {
         }
         
         // Initialize circles
-        small = MovingCircle(x: Int.random(in: 0...500),
-                             y: Int.random(in: 0...500),
-                             dx: dx,
-                             dy: dy,
-                             size: Int.random(in: 50...400))
-                
-        large = MovingCircle(x: Int.random(in: 0...500),
-                             y: Int.random(in: 0...500),
-                             dx: 1,
-                             dy: -1,
-                             size: Int.random(in: 50...400))
+        for _ in 1...2 {
+            let newCircle = MovingCircle(x: Int.random(in: 0...500),
+                                         y: Int.random(in: 0...500),
+                                         dx: dx,
+                                         dy: dy,
+                                         size: 200)
+            
+            // add it to the list of circles
+            circles.append(newCircle)
+        }
+        
+        
+        //        small = MovingCircle(x: Int.random(in: 0...500),
+        //                             y: Int.random(in: 0...500),
+        //                             dx: dx,
+        //                             dy: dy,
+        //                             size: Int.random(in: 50...400))
+        //
+        //        large = MovingCircle(x: Int.random(in: 0...500),
+        //                             y: Int.random(in: 0...500),
+        //                             dx: 1,
+        //                             dy: -1,
+        //                             size: Int.random(in: 50...400))
     }
     
     // This function runs repeatedly, forever, to create the animated effect
@@ -58,20 +71,23 @@ class LineFromCircles: NSObject, Sketchable {
         //Draw with no trace
         canvas.drawShapesWithFill = true
         canvas.fillColor = Color.white
-//        canvas.drawRectangle(at: Point(x: 250, y: 250), width: 500, height: 500, anchoredBy: .centre)
-
+        //        canvas.drawRectangle(at: Point(x: 250, y: 250), width: 500, height: 500, anchoredBy: .centre)
+        
         //Movement
-        small.update(on: canvas)
-        large.update(on: canvas)
+//        small.update(on: canvas)
+//        large.update(on: canvas)
+        circles[0].update(on: canvas)
+        circles[1].update(on: canvas)
         
         // Draw When Overlapping
-        small.drawWhenOverlapping(other: large, on: canvas)
-//
-//
+//        small.drawWhenOverlapping(other: large, on: canvas)
+        circles[0].drawWhenOverlapping(other: circles[1], on: canvas)
+        //
+        //
         
         
     }
     
-
-
+    
+    
 }
