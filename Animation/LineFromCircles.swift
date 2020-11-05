@@ -40,7 +40,7 @@ class LineFromCircles: NSObject, Sketchable {
         }
         
         // Initialize circles
-        for _ in 1...2 {
+        for _ in 1...3 {
             let newCircle = MovingCircle(x: Int.random(in: 0...500),
                                          y: Int.random(in: 0...500),
                                          dx: dx,
@@ -71,17 +71,20 @@ class LineFromCircles: NSObject, Sketchable {
         //Draw with no trace
         canvas.drawShapesWithFill = true
         canvas.fillColor = Color.white
-        //        canvas.drawRectangle(at: Point(x: 250, y: 250), width: 500, height: 500, anchoredBy: .centre)
+                canvas.drawRectangle(at: Point(x: 250, y: 250), width: 500, height: 500, anchoredBy: .centre)
         
         //Movement
 //        small.update(on: canvas)
 //        large.update(on: canvas)
         circles[0].update(on: canvas)
         circles[1].update(on: canvas)
+        circles[2].update(on: canvas)
         
         // Draw When Overlapping
 //        small.drawWhenOverlapping(other: large, on: canvas)
         circles[0].drawWhenOverlapping(other: circles[1], on: canvas)
+        circles[0].drawWhenOverlapping(other: circles[2], on: canvas)
+        circles[1].drawWhenOverlapping(other: circles[2], on: canvas)
         //
         //
         
