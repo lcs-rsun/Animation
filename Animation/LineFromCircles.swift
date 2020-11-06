@@ -40,7 +40,7 @@ class LineFromCircles: NSObject, Sketchable {
         }
         
         // Initialize circles
-        for _ in 1...40 {
+        for _ in 1...30 {
             let newCircle = MovingCircle(x: Int.random(in: 0...500),
                                          y: Int.random(in: 0...500),
                                          dx: dx,
