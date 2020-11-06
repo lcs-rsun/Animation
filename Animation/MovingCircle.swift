@@ -45,7 +45,7 @@ class MovingCircle {
         y += dy
 
         canvas.drawShapesWithFill = false
-        canvas.drawEllipse(at: Point(x: x, y: y), width: size, height: size)
+//        canvas.drawEllipse(at: Point(x: x, y: y), width: size, height: size)
 
         // Small Circle Bounce
         if x >= 500{

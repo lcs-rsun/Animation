@@ -40,7 +40,7 @@ class LineFromCircles: NSObject, Sketchable {
         }
         
         // Initialize circles
-        for _ in 1...3 {
+        for _ in 1...40 {
             let newCircle = MovingCircle(x: Int.random(in: 0...500),
                                          y: Int.random(in: 0...500),
                                          dx: dx,
@@ -76,16 +76,31 @@ class LineFromCircles: NSObject, Sketchable {
         //Movement
 //        small.update(on: canvas)
 //        large.update(on: canvas)
-        circles[0].update(on: canvas)
-        circles[1].update(on: canvas)
-        circles[2].update(on: canvas)
+        for i in stride(from: 0, to: circles.count, by: 1) {
+            circles[i].update(on: canvas)
+        }
+        
+        
+//        circles[0].update(on: canvas)
+//        circles[1].update(on: canvas)
+//        circles[2].update(on: canvas)
+//        circles[3].update(on: canvas)
         
         // Draw When Overlapping
 //        small.drawWhenOverlapping(other: large, on: canvas)
-        circles[0].drawWhenOverlapping(other: circles[1], on: canvas)
-        circles[0].drawWhenOverlapping(other: circles[2], on: canvas)
-        circles[1].drawWhenOverlapping(other: circles[2], on: canvas)
-        //
+        for i in stride(from: 0, through: circles.count - 2, by: 1) {
+            for j in stride(from: i + 1, through: circles.count - 1, by: 1) {
+                circles[i].drawWhenOverlapping(other: circles[j], on: canvas)
+            }
+        }
+        
+//        circles[0].drawWhenOverlapping(other: circles[1], on: canvas)
+//        circles[0].drawWhenOverlapping(other: circles[2], on: canvas)
+//        circles[0].drawWhenOverlapping(other: circles[3], on: canvas)
+//        circles[1].drawWhenOverlapping(other: circles[2], on: canvas)
+//        circles[1].drawWhenOverlapping(other: circles[3], on: canvas)
+//        circles[2].drawWhenOverlapping(other: circles[3], on: canvas)
+//        //
         //
         
         
