@@ -40,13 +40,13 @@ class LineFromCircles: NSObject, Sketchable {
         }
         
         // Initialize circles
-        for _ in 1...30 {
-            let newCircle = MovingCircle(x: Int.random(in: 0...500),
-                                         y: Int.random(in: 0...500),
+        for _ in 1...9 {
+            let newCircle = MovingCircle(x: Int.random(in: 50...150),
+                                         y: Int.random(in: 50...150),
                                          dx: dx,
                                          dy: dy,
-                                         size: 200)
-            
+                                         size: Int.random(in: 50...150) )
+        
             // add it to the list of circles
             circles.append(newCircle)
         }
