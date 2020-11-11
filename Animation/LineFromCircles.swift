@@ -27,22 +27,25 @@ class LineFromCircles: NSObject, Sketchable {
         // Create canvas object – specify size
         canvas = Canvas(width: 500, height: 500)
         
-        //Randomly pick a horizontal direction
-        var dx = 1
-        if Bool.random() == true{
-            dx *= -1
-        }
-        
-        //Randomly pick a vertical object
-        var dy = 1
-        if Bool.random() == true {
-            dy *= -1
-        }
+
         
         // Initialize circles
         for _ in 1...9 {
-            let newCircle = MovingCircle(x: Int.random(in: 50...150),
-                                         y: Int.random(in: 50...150),
+            
+            //Randomly pick a horizontal direction
+            var dx = 1
+            if Bool.random() == true {
+                dx *= -1
+            }
+            
+            //Randomly pick a vertical object
+            var dy = 1
+            if Bool.random() == true {
+                dy *= -1
+            }
+            
+            let newCircle = MovingCircle(x: Int.random(in: 0...canvas.width),
+                                         y: Int.random(in: 0...canvas.height),
                                          dx: dx,
                                          dy: dy,
                                          size: Int.random(in: 50...150) )
