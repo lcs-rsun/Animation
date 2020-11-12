@@ -30,8 +30,8 @@ class Spiral: NSObject, Sketchable {
         for i in 1...36 {
             
             // Give the one spiral a starting angle of rotation
-            let spiral = IndividualSpiral(angleOffset: i * 20,
-                                          hue: Float(i) * 20)
+            let spiral = IndividualSpiral(angleOffset: i * 60,
+                                          hue: Float(i) * 60)
             
             // Add the new spiral to the list
             spirals.append(spiral)
@@ -54,7 +54,7 @@ class Spiral: NSObject, Sketchable {
         canvas.defaultLineWidth = 1
         
         // Set the origin to be the middle of the canvas
-        canvas.translate(to: Point(x: canvas.width / 2, y: canvas.height / 2))
+        canvas.translate(to: Point(x: canvas.width / 5, y: canvas.height / 5))
         
         // Update the position of that one spiral
         for spiral in spirals {
