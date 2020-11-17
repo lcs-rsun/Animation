@@ -19,6 +19,7 @@ class MathFunction {
     //    A property is something that describes the item.
     //    e.g. : A student at LCS has a house, a hair color, a height
     var lastPoint: Point
+    var hue : Float
     var a : CGFloat   // Vertical stretch / compression / reflection
     var k : CGFloat   // Horizontal stretch / compression/ reflection
     var d : CGFloat   // Horizontal shift
@@ -32,7 +33,8 @@ class MathFunction {
          k : CGFloat,
          d : CGFloat,
          c : CGFloat,
-         canvas : Canvas) {
+         canvas : Canvas,
+         hue : Float) {
         
         // I want every function to begin off thhe left side of the canvas
         self.lastPoint = Point(x: -1 * canvas.width / 2,
@@ -43,6 +45,7 @@ class MathFunction {
         self.k = k
         self.d = d
         self.c = c
+        self.hue = hue
     }
     // 3. Methods
     //
@@ -69,7 +72,7 @@ class MathFunction {
 //            print(nextPoint)
             
             // Set the line color
-            canvas.lineColor = Color(hue: 0,
+            canvas.lineColor = Color(hue: hue,
                                      saturation: 80,
                                      brightness: 90,
                                      alpha: 100)

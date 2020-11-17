@@ -15,6 +15,7 @@ class FunctionArt1: NSObject, Sketchable {
     // NOTE: Every sketch must contain an object of type Canvas named 'canvas'
     //       Therefore, the line immediately below must always be present.
     var canvas: Canvas
+
     
     // Add many spirals
     // This is now a list , or an arrray, of functions
@@ -23,18 +24,20 @@ class FunctionArt1: NSObject, Sketchable {
     // This function runs once
     override init() {
         
+        
         // Create canvas object – specify size
         canvas = Canvas(width: 500, height: 500)
         
         // Initialize many spirals
-        for i in 1...5 {
+        for i in 1...20 {
            
             // Create the function
             let newFunction = MathFunction(a: 1.0,
-                                           k: 1.0,
+                                           k: 15.0,
                                            d: CGFloat(i) * 25 ,
                                            c: 0,
-                                           canvas: canvas)
+                                           canvas: canvas,
+                                           hue: Float(i) * 30)
             
             // Add it to the list
             functions.append(newFunction)
@@ -53,8 +56,11 @@ class FunctionArt1: NSObject, Sketchable {
         // What frame are we on?
 //        print(canvas.frameCount)
         
+        
+
         canvas.defaultLineWidth = 1
         
+                
         // Set the origin to be the middle of the canvas
         canvas.translate(to: Point(x: canvas.width / 5, y: canvas.height / 5))
         
