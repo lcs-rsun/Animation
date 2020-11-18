@@ -9,6 +9,19 @@
 import Foundation
 import CanvasGraphics
 
+// Enumeration
+// Defining a list of choices that you want the user of your to be able to select from
+enum FunctionType {
+    case linear
+    case quadratic
+    case cubic
+    case squareRoot
+    case absoluteValue
+    case exponential
+    case reciprocal
+}
+
+
 // Define a calss that creates a spiral
 // - a "class" is just a way to group data (properties) together
 // with behavior (things that we want to happen)
@@ -24,6 +37,7 @@ class MathFunction {
     var k : CGFloat   // Horizontal stretch / compression/ reflection
     var d : CGFloat   // Horizontal shift
     var c : CGFloat   // Vertical shift
+    var type : FunctionType // Tell us what shape / math function to use
    
     
     // 2.Initializer
@@ -34,7 +48,8 @@ class MathFunction {
          d : CGFloat,
          c : CGFloat,
          canvas : Canvas,
-         hue : Float) {
+         hue : Float,
+         type : FunctionType) {
         
         // I want every function to begin off thhe left side of the canvas
         self.lastPoint = Point(x: -1 * canvas.width / 2,
@@ -45,6 +60,7 @@ class MathFunction {
         self.k = k
         self.d = d
         self.c = c
+        self.type = type
         self.hue = hue
     }
     // 3. Methods
@@ -54,7 +70,7 @@ class MathFunction {
     func update(on canvas: Canvas) {
         
         // Start drawing after the first frame
-        if canvas.frameCount > 0 {
+        if canvas.frameCount > 0 && canvas.frameCount < canvas.width{
 
             
 
@@ -65,7 +81,23 @@ class MathFunction {
             var nextY : CGFloat = 0.0
             
             // Set y using a quadratic function
-            nextY = a * pow((nextX - d) / k, 2.0) + c
+            switch type {
+            case .linear :
+                nextY = a * ((nextX - d) / k) + c
+            case .quadratic :
+                nextY = a * pow((nextX - d) / k, 2.0) + c
+            case .cubic:
+                nextY = a * pow((nextX - d) / k, 3.0) + c
+            case .squareRoot :
+                nextY = a * sqrt((nextX - d) / k) + c
+            case .absoluteValue :
+                nextY = a * abs((nextX - d) / k) + c
+            case .exponential :
+                nextY = a * exp((nextX - d) / k) + c
+            case .reciprocal :
+                nextY = a * 1.0/((nextX - d) / k) + c
+            }
+                
             
             // Set the next point
             let nextPoint = Point(x: nextX, y: nextY)

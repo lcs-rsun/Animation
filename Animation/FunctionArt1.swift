@@ -32,12 +32,13 @@ class FunctionArt1: NSObject, Sketchable {
         for i in 1...20 {
            
             // Create the function
-            let newFunction = MathFunction(a: 1.0,
-                                           k: 15.0,
+            let newFunction = MathFunction(a: 20.0,
+                                           k: 1.0,
                                            d: CGFloat(i) * 25 ,
                                            c: 0,
                                            canvas: canvas,
-                                           hue: Float(i) * 30)
+                                           hue: Float(i) * 10,
+                                           type: .squareRoot)
             
             // Add it to the list
             functions.append(newFunction)
