@@ -67,7 +67,8 @@ class FunctionArt1: NSObject, Sketchable {
         
         // Update the position of all functions
         for function in functions {
-            function.update(on: canvas)
+            function.update(on: canvas,
+                            usingInputValue: canvas.frameCount)
         }
         
 
