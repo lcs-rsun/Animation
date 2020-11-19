@@ -51,6 +51,9 @@ class MathFunction {
          hue : Float,
          type : FunctionType) {
         
+        // I want every function to begin off thhe left side of the canvas
+        self.lastPoint = Point(x: -1 * canvas.width / 2,
+                               y: 0)
         
         // Each spiral begins at a slightly differnt angle
         self.a = a

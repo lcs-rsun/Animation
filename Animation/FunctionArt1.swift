@@ -32,7 +32,7 @@ class FunctionArt1: NSObject, Sketchable {
         for i in 1...20 {
            
             // Create the function
-            let newFunction = MathFunction(a: 20.0,
+            let newFunction = MathFunction(a: 20,
                                            k: 1.0,
                                            d: CGFloat(i) * 25 ,
                                            c: 0,
@@ -57,7 +57,7 @@ class FunctionArt1: NSObject, Sketchable {
         canvas.fillColor = Color(hue: 0,
                                  saturation: 0,
                                  brightness: 100,
-                                 alpha: 100)
+                                 alpha: 80)
         
         canvas.drawRectangle(at: Point(x: 0, y: 0),
                              width: canvas.width,
@@ -74,10 +74,16 @@ class FunctionArt1: NSObject, Sketchable {
         // Set the origin to be the middle of the canvas
         canvas.translate(to: Point(x: canvas.width / 5, y: canvas.height / 5))
         
+        // Randomly change the vertical position
+        let newC = Int.random(in: -150...150)
+
         // Drowthe entire list of functions all at once
         for x in 0...canvas.width {
+            
+                
             // Update the position of all functions
             for function in functions {
+                function.c = CGFloat(newC)
                 function.update(on: canvas,
                                 usingInputValue: x)
             }
