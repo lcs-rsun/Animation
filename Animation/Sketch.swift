@@ -24,6 +24,7 @@ class Sketch: NSObject {
 //    var currentDrawing = LineFromCircles()
 //    var currentDrawing = Skittles()
 //    var currentDrawing = Spiral()
-      var currentDrawing = FunctionArt1()
+//    var currentDrawing = FunctionArt1()
+    var currentDrawing = FunctionArt2()
 
 }
