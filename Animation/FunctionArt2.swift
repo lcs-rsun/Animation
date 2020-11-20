@@ -36,7 +36,7 @@ class FunctionArt2: NSObject, Sketchable {
             let newFunction = MathFunction(a: 5,
                                            k: 1.0,
                                            d: CGFloat(i) * 25 ,
-                                           c: 150,
+                                           c: 100,
                                            canvas: canvas,
                                            hue: Float(i) * 5,
                                            type: .sine)
@@ -45,16 +45,16 @@ class FunctionArt2: NSObject, Sketchable {
             redBand.append(newFunction)
         }
         
-        for i in 1...5 {
+        for i in 1...20 {
             
             // Create the function
-            let newFunction = MathFunction(a: 5,
-                                           k: 1.0,
+            let newFunction = MathFunction(a: 1,
+                                           k: 50.0,
                                            d: CGFloat(i) * 25 ,
                                            c: 300,
                                            canvas: canvas,
-                                           hue: Float(i) * 5,
-                                           type: .sine,
+                                           hue: Float(i) * 15,
+                                           type: .reciprocal,
                                            delayInSeconds: 2)
             
             // Add it to the list
@@ -70,8 +70,9 @@ class FunctionArt2: NSObject, Sketchable {
     func draw() {
         
         // Clear the canvas
-        canvas.fillColor = Color(hue: 10,
-                                 saturation: 0,
+        let hue = 70.0 * sin(Degrees(canvas.frameCount).asRadians()) + 290
+        canvas.fillColor = Color(hue: Int(hue),
+                                 saturation: 30,
                                  brightness: 100,
                                  alpha: 80)
         
