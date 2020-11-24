@@ -25,6 +25,12 @@ class Sketch: NSObject {
 //    var currentDrawing = Skittles()
 //    var currentDrawing = Spiral()
 //    var currentDrawing = FunctionArt1()
-    var currentDrawing = FunctionArt2()
+//    var currentDrawing = FunctionArt2()
+//    var currentDrawing = FunctionArt3()
+//    var currentDrawing = LaptopSkin1()
+//    var currentDrawing = LaptopSkin2()
+//    var currentDrawing = LaptopSkin3()
+//    var currentDrawing = LaptopSkin4()
+    var currentDrawing = LaptopSkin5()
 
 }

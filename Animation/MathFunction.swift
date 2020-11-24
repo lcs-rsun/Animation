@@ -23,6 +23,13 @@ enum FunctionType {
 }
 
 
+// Shape type
+enum ShapeType{
+    case none
+    case star
+}
+
+
 // Define a calss that creates a spiral
 // - a "class" is just a way to group data (properties) together
 // with behavior (things that we want to happen)
@@ -40,6 +47,7 @@ class MathFunction {
     var c : CGFloat   // Vertical shift
     var type : FunctionType // Tell us what shape / math function to use
     var delayInSeconds : Int // How much of a delay to have before the animation begins
+    var shapeType: ShapeType // What shape to draw along the path, if any
    
     
     // 2.Initializer
@@ -52,7 +60,8 @@ class MathFunction {
          canvas : Canvas,
          hue : Float,
          type : FunctionType,
-         delayInSeconds : Int = 0){
+         delayInSeconds : Int = 0,
+         shapeType: ShapeType = .none){
         
         // I want every function to begin off thhe left side of the canvas
         self.lastPoint = Point(x: -1 * canvas.width / 2,
@@ -66,6 +75,7 @@ class MathFunction {
         self.type = type
         self.hue = hue
         self.delayInSeconds = delayInSeconds
+        self.shapeType = shapeType
     }
     // 3. Methods
     //
@@ -87,7 +97,7 @@ class MathFunction {
             if x > 0 && x < canvas.width {
 
                 // Determine the next x position
-                let nextX: CGFloat = Degrees(x - canvas.width / 5)
+                let nextX: CGFloat = Degrees(x - canvas.width / 2)
                 
                 // Determine the next y position
                 var nextY : CGFloat = 0.0
@@ -126,6 +136,31 @@ class MathFunction {
 
                 // Draw a line from the last point to the next point
                 canvas.drawLine(from: lastPoint, to: nextPoint)
+                
+                // Whether to draw a shape or not
+                if shapeType == .none {
+                    
+                    // Draw a line from the last point to the next point
+                    canvas.drawLine(from: lastPoint, to: nextPoint)
+                } else if shapeType == .star {
+                    
+                    // Yellow color
+                    canvas.fillColor = Color(hue: 56, saturation: 70, brightness: 90, alpha: 80)
+                    canvas.drawShapesWithFill = true
+                    
+                    var star: [Point] = []
+                    star.append(Point(x: nextX + 0, y: nextY - 50))
+                    star.append(Point(x: nextX + 14, y: nextY - 20))
+                    star.append(Point(x: nextX + 47, y: nextY - 15))
+                    star.append(Point(x: nextX + 23, y: nextY + 7))
+                    star.append(Point(x: nextX + 29, y: nextY + 40))
+                    star.append(Point(x: nextX + 0, y: nextY + 25))
+                    star.append(Point(x: nextX - 29, y: nextY + 40))
+                    star.append(Point(x: nextX - 23, y: nextY + 7))
+                    star.append(Point(x: nextX - 47, y: nextY - 15))
+                    star.append(Point(x: nextX - 14, y: nextY - 20))
+                    canvas.drawCustomShape(with: star)
+                }
                 
 
                 // Set the "new" last point, now that the line is drawn

@@ -44,15 +44,15 @@ class MovingCircle {
         x += dx
         y += dy
 
-        canvas.drawShapesWithFill = false
-        canvas.drawEllipse(at: Point(x: x, y: y), width: size, height: size)
+//        canvas.drawShapesWithFill = false
+//        canvas.drawEllipse(at: Point(x: x, y: y), width: size, height: size)
 
         // Small Circle Bounce
-        if x >= 500{
+        if x >= canvas.width{
             dx = Int.random(in: 1...3) * -1
         } else if x <= 0 {
             dx = Int.random(in: 1...3)
-        } else if y >= 500 {
+        } else if y >= canvas.width {
             dy = -1
         } else if y <= 0 {
             dy = 1
