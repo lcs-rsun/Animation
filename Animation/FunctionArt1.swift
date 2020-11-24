@@ -35,7 +35,7 @@ class FunctionArt1: NSObject, Sketchable {
             let newFunction = MathFunction(a: 5,
                                            k: 1.0,
                                            d: CGFloat(i) * 25 ,
-                                           c: 150,
+                                           c: 0,
                                            canvas: canvas,
                                            hue: Float(i) * 5,
                                            type: .sine)
@@ -46,7 +46,7 @@ class FunctionArt1: NSObject, Sketchable {
         
         
         // Speed
-        canvas.framesPerSecond = 60
+        canvas.framesPerSecond = 30
     }
     
 
@@ -74,7 +74,7 @@ class FunctionArt1: NSObject, Sketchable {
         canvas.translate(to: Point(x: canvas.width / 5, y: canvas.height / 5))
         
         // Randomly change the vertical position
-        Int.random(in: -150...150)
+//        Int.random(in: -150...150)
 
         // Drowthe entire list of functions all at once
         for x in 0...canvas.width {

@@ -34,8 +34,8 @@ class LaptopSkin3: NSObject, Sketchable {
             // Create the function
             let newFunction = MathFunction(a: 1,
                                            k: 20.0,
-                                           d: CGFloat(i) * 20 ,
-                                           c: 130,
+                                           d: CGFloat(i) * 20 - 200 ,
+                                           c: 0,
                                            canvas: canvas,
                                            hue: Float(i) * 60,
                                            type: .cubic)
@@ -71,7 +71,7 @@ class LaptopSkin3: NSObject, Sketchable {
         
                 
         // Set the origin to be the middle of the canvas
-        canvas.translate(to: Point(x: canvas.width / 5, y: canvas.height / 5))
+        canvas.translate(to: Point(x: canvas.width / 2, y: canvas.height / 2))
         
         // Randomly change the vertical position
 //        Int.random(in: -150...150)
