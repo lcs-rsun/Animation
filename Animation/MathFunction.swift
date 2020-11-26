@@ -20,6 +20,7 @@ enum FunctionType {
     case exponential
     case reciprocal
     case sine
+    case spiral
 }
 
 
@@ -27,6 +28,7 @@ enum FunctionType {
 enum ShapeType{
     case none
     case star
+    
 }
 
 
@@ -34,7 +36,7 @@ enum ShapeType{
 // - a "class" is just a way to group data (properties) together
 // with behavior (things that we want to happen)
 class MathFunction {
-
+    
     // 1. Properties
     //
     //    A property is something that describes the item.
@@ -48,7 +50,9 @@ class MathFunction {
     var type : FunctionType // Tell us what shape / math function to use
     var delayInSeconds : Int // How much of a delay to have before the animation begins
     var shapeType: ShapeType // What shape to draw along the path, if any
-   
+    var angleOffset: Int
+    
+    
     
     // 2.Initializer
     //
@@ -58,14 +62,22 @@ class MathFunction {
          d : CGFloat,
          c : CGFloat,
          canvas : Canvas,
+         angleOffset: Int = 0,
          hue : Float,
          type : FunctionType,
          delayInSeconds : Int = 0,
          shapeType: ShapeType = .none){
         
         // I want every function to begin off thhe left side of the canvas
-        self.lastPoint = Point(x: -1 * canvas.width / 2,
-                               y: 0)
+        if type == .spiral{
+            self.lastPoint = Point(x: 0,
+                                   y: 0)
+        } else {
+            // I want every function to begin off thhe left side of the canvas
+            self.lastPoint = Point(x: -1 * canvas.width / 2,
+                                   y: 0)
+        }
+        
         
         // Each spiral begins at a slightly differnt angle
         self.a = a
@@ -76,6 +88,7 @@ class MathFunction {
         self.hue = hue
         self.delayInSeconds = delayInSeconds
         self.shapeType = shapeType
+        self.angleOffset = angleOffset
     }
     // 3. Methods
     //
@@ -88,16 +101,29 @@ class MathFunction {
             // Make sure each re-draw of all the functions begins off-screen
             if x == 0 {
                 
-                // I want every function to begin off thhe left side of the canvas
-                self.lastPoint = Point(x: -1 * canvas.width / 2,
-                                       y: 0)
+                //                        // I want every function to begin off thhe left side of the canvas
+                if type == .spiral{
+                    self.lastPoint = Point(x: 0,
+                                           y: 0)
+                } else {
+                    // I want every function to begin off thhe left side of the canvas
+                    self.lastPoint = Point(x: -1 * canvas.width / 2,
+                                           y: 0)
+                }
+                
+            }
+            
+            // I want every function to begin off thhe left side of the canvas
+            var stopAt = canvas.width
+            if type == .spiral{
+                stopAt = canvas.width * 5
             }
             
             // Start drawing after the first frame
-            if x > 0 && x < canvas.width {
-
+            if x > 0 && x < stopAt {
+                
                 // Determine the next x position
-                let nextX: CGFloat = Degrees(x - canvas.width / 2)
+                var nextX: CGFloat = Degrees(x - canvas.width / 2)
                 
                 // Determine the next y position
                 var nextY : CGFloat = 0.0
@@ -120,12 +146,22 @@ class MathFunction {
                     nextY = a * 1.0/((nextX - d) / k) + c
                 case .sine :
                     nextY = a * sin((nextX.asRadians() - d) / k) + c
-                }
+                case .spiral :
+                    // Set the radius
+                    let radius = CGFloat(canvas.frameCount) / 2
                     
+                    // Set the angle equal to the frameCount
+                    let angle = CGFloat(canvas.frameCount + angleOffset)
+                    
+                    // Set the acutal x and y position for a spiral
+                    nextX = cos(angle.asRadians()) * radius
+                    nextY = sin(angle.asRadians()) * radius
+                }
+                
                 
                 // Set the next point
                 let nextPoint = Point(x: nextX, y: nextY)
-    //            print(nextPoint)
+                //            print(nextPoint)
                 
                 // Set the line color
                 canvas.lineColor = Color(hue: hue,
@@ -133,7 +169,7 @@ class MathFunction {
                                          brightness: 90,
                                          alpha: 100)
                 
-
+                
                 // Draw a line from the last point to the next point
                 canvas.drawLine(from: lastPoint, to: nextPoint)
                 
@@ -162,15 +198,15 @@ class MathFunction {
                     canvas.drawCustomShape(with: star)
                 }
                 
-
+                
                 // Set the "new" last point, now that the line is drawn
                 lastPoint = nextPoint
-
+                
             }
-
-
+            
+            
         }
         
-
+        
     }
 }
