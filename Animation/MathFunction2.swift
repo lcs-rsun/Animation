@@ -77,20 +77,20 @@ class MathFunction2 {
     // Update (or draw) the position of this spiral
     func update(on canvas: Canvas, usingInputValue x: Int) {
         
-        // Make sure each re-draw of all the functions begins off-screen
-        if x == 0 {
-            
-            //                        // I want every function to begin at middle of canvas
-            if type == .spiral{
-                self.lastPoint = Point(x: 0,
-                                       y: 0)
-            } else {
-                // I want every function to begin off thhe left side of the canvas
-                self.lastPoint = Point(x: -1 * canvas.width / 2,
-                                       y: 0)
-            }
-            
-        }
+//        // Make sure each re-draw of all the functions begins off-screen
+//        if x == 0 {
+//            
+//            //                        // I want every function to begin at middle of canvas
+//            if type == .spiral{
+//                self.lastPoint = Point(x: 0,
+//                                       y: 0)
+//            } else {
+//                // I want every function to begin off thhe left side of the canvas
+//                self.lastPoint = Point(x: -1 * canvas.width / 2,
+//                                       y: 0)
+//            }
+//            
+//        }
         
         // Only draw on the canvas after the delay in seconds has been reached
         if x > delayInSeconds * canvas.framesPerSecond {

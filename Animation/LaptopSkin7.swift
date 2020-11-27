@@ -63,7 +63,7 @@ class LaptopSkin7: NSObject, Sketchable {
         canvas.fillColor = Color(hue: 0,
                                  saturation: 0,
                                  brightness: 100,
-                                 alpha: 20)
+                                 alpha: 10)
         
         canvas.drawRectangle(at: Point(x: 0, y: 0),
                              width: canvas.width,
@@ -82,9 +82,11 @@ class LaptopSkin7: NSObject, Sketchable {
         
         let radius = 100.0 * sin(Degrees(canvas.frameCount).asRadians())
 
-        for x in 0...canvas.width {
+        
+        for spiral in spirals {
+          
             
-            for spiral in spirals {
+            for x in 0...canvas.width {
                 
                 spiral.radius = radius
                 spiral.update(on: canvas,
@@ -92,6 +94,7 @@ class LaptopSkin7: NSObject, Sketchable {
 
                 
             }
+
             
         }
       
