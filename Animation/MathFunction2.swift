@@ -131,10 +131,10 @@ class MathFunction2 {
                     nextY = a * sin((nextX.asRadians() - d) / k) + c
                 case .spiral :
 //                    // Set the radius
-                    radius = CGFloat(x) / 2
+//                    radius = CGFloat(x) / 2
                     
                     // Set the angle equal to the frameCount
-                    let angle = CGFloat(x + angleOffset)
+                    let angle = CGFloat(canvas.frameCount + angleOffset)
                     
                     // Set the acutal x and y position for a spiral
                     nextX = cos(angle.asRadians()) * radius

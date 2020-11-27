@@ -80,13 +80,13 @@ class LaptopSkin7: NSObject, Sketchable {
         
         // Update the position of that one spiral
         
+        let radius = 100.0 * sin(Degrees(canvas.frameCount).asRadians())
+
         for x in 0...canvas.width {
             
             for spiral in spirals {
-//                spiral.update(on: canvas, usingInputValue: canvas.frameCount)
                 
-//                spiral.radius = 100.0 * sin(Degrees(canvas.frameCount).asRadians())
-//                spiral.radius = 50
+                spiral.radius = radius
                 spiral.update(on: canvas,
                                 usingInputValue: x)
 
