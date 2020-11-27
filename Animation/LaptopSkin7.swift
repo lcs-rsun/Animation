@@ -9,7 +9,7 @@ import Foundation
 import CanvasGraphics
 
 // NOTE: This is a completely empty sketch; it can be used as a template.
-class LaptopSkin5: NSObject, Sketchable {
+class LaptopSkin7: NSObject, Sketchable {
     
 
     // NOTE: Every sketch must contain an object of type Canvas named 'canvas'
@@ -18,7 +18,7 @@ class LaptopSkin5: NSObject, Sketchable {
     
     // Add many spirals
     // This is now a list , or an arrray, of spirals
-    var spirals: [MathFunction] = [] // empty list
+    var spirals: [MathFunction2] = [] // empty list
    
 
     // This function runs once
@@ -33,7 +33,7 @@ class LaptopSkin5: NSObject, Sketchable {
             // Give the one spiral a starting angle of rotation
 //            let spiral = IndividualSpiral(angleOffset: i * 60,
 //                                          hue: Float(i) * 60)
-            let spiral = MathFunction(a: 1,
+            let spiral = MathFunction2(a: 1,
                                       k: 1,
                                       d: 0,
                                       c: 0,
@@ -59,6 +59,16 @@ class LaptopSkin5: NSObject, Sketchable {
     // This function runs repeatedly, forever, to create the animated effect
     func draw() {
         
+        // Opaque white, for now
+        canvas.fillColor = Color(hue: 0,
+                                 saturation: 0,
+                                 brightness: 100,
+                                 alpha: 20)
+        
+        canvas.drawRectangle(at: Point(x: 0, y: 0),
+                             width: canvas.width,
+                             height: canvas.height)
+        
 
         // What frame are we on?
 //        print(canvas.frameCount)
@@ -70,12 +80,13 @@ class LaptopSkin5: NSObject, Sketchable {
         
         // Update the position of that one spiral
         
-        for x in 0...canvas.width{
+        for x in 0...canvas.width {
             
             for spiral in spirals {
 //                spiral.update(on: canvas, usingInputValue: canvas.frameCount)
                 
-                spiral.k = 100.0 * sin(Degrees(canvas.frameCount).asRadians())
+//                spiral.radius = 100.0 * sin(Degrees(canvas.frameCount).asRadians())
+//                spiral.radius = 50
                 spiral.update(on: canvas,
                                 usingInputValue: x)
 

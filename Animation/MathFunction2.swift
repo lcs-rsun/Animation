@@ -9,33 +9,11 @@
 import Foundation
 import CanvasGraphics
 
-// Enumeration
-// Defining a list of choices that you want the user of your to be able to select from
-enum FunctionType {
-    case linear
-    case quadratic
-    case cubic
-    case squareRoot
-    case absoluteValue
-    case exponential
-    case reciprocal
-    case sine
-    case spiral
-}
-
-
-// Shape type
-enum ShapeType{
-    case none
-    case star
-    
-}
-
 
 // Define a calss that creates a spiral
 // - a "class" is just a way to group data (properties) together
 // with behavior (things that we want to happen)
-class MathFunction {
+class MathFunction2 {
     
     // 1. Properties
     //
@@ -99,22 +77,24 @@ class MathFunction {
     // Update (or draw) the position of this spiral
     func update(on canvas: Canvas, usingInputValue x: Int) {
         
-        // Only draw on the canvas after the delay in seconds has been reached
-        if canvas.frameCount > delayInSeconds * canvas.framesPerSecond {
-            // Make sure each re-draw of all the functions begins off-screen
-            if x == 0 {
-                
-                //                        // I want every function to begin off thhe left side of the canvas
-                if type == .spiral{
-                    self.lastPoint = Point(x: 0,
-                                           y: 0)
-                } else {
-                    // I want every function to begin off thhe left side of the canvas
-                    self.lastPoint = Point(x: -1 * canvas.width / 2,
-                                           y: 0)
-                }
-                
+        // Make sure each re-draw of all the functions begins off-screen
+        if x == 0 {
+            
+            //                        // I want every function to begin at middle of canvas
+            if type == .spiral{
+                self.lastPoint = Point(x: 0,
+                                       y: 0)
+            } else {
+                // I want every function to begin off thhe left side of the canvas
+                self.lastPoint = Point(x: -1 * canvas.width / 2,
+                                       y: 0)
             }
+            
+        }
+        
+        // Only draw on the canvas after the delay in seconds has been reached
+        if x > delayInSeconds * canvas.framesPerSecond {
+            
             
             // I want every function to begin off thhe left side of the canvas
             var stopAt = canvas.width
@@ -150,11 +130,11 @@ class MathFunction {
                 case .sine :
                     nextY = a * sin((nextX.asRadians() - d) / k) + c
                 case .spiral :
-                    // Set the radius
-                    let radius = CGFloat(canvas.frameCount) / 2
+//                    // Set the radius
+                    radius = CGFloat(x) / 2
                     
                     // Set the angle equal to the frameCount
-                    let angle = CGFloat(canvas.frameCount + angleOffset)
+                    let angle = CGFloat(x + angleOffset)
                     
                     // Set the acutal x and y position for a spiral
                     nextX = cos(angle.asRadians()) * radius
