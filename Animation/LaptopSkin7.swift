@@ -25,7 +25,7 @@ class LaptopSkin7: NSObject, Sketchable {
     override init() {
         
         // Create canvas object – specify size
-        canvas = Canvas(width: 600, height: 400)
+        canvas = Canvas(width: 400, height: 400)
         
         // Initialize many spirals
         for i in 1...20 {
@@ -80,7 +80,7 @@ class LaptopSkin7: NSObject, Sketchable {
         
         // Update the position of that one spiral
         
-        let radius = 100.0 * sin(Degrees(canvas.frameCount).asRadians())
+        let radius = 200.0 * sin(Degrees(canvas.frameCount).asRadians())
 
         
         for spiral in spirals {
