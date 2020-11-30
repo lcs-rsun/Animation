@@ -34,6 +34,8 @@ class Sketch: NSObject {
 //    var currentDrawing = LaptopSkin5()
 //    var currentDrawing = LaptopSkin6()
     var currentDrawing = LaptopSkin7()
+//    var currentDrawing = LaptopSkin8()
+
 
 
     

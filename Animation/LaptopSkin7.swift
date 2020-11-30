@@ -28,7 +28,7 @@ class LaptopSkin7: NSObject, Sketchable {
         canvas = Canvas(width: 600, height: 400)
         
         // Initialize many spirals
-        for i in 1...6 {
+        for i in 1...20 {
             
             // Give the one spiral a starting angle of rotation
 //            let spiral = IndividualSpiral(angleOffset: i * 60,
@@ -62,7 +62,7 @@ class LaptopSkin7: NSObject, Sketchable {
         // Opaque white, for now
         canvas.fillColor = Color(hue: 0,
                                  saturation: 0,
-                                 brightness: 100,
+                                 brightness: 0,
                                  alpha: 10)
         
         canvas.drawRectangle(at: Point(x: 0, y: 0),
